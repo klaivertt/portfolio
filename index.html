@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Portfolio d'Alexandre Bosio développeur junior</title>
+    <title>Portfolio d'Alexandre Bosio, développeur junior</title>
     <link rel="icon" href="logo.png">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css'>
-    <link rel='stylesheet' href='https://static.fontawesome.com/css/fontawesome-app.css'>
-    <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.2.0/css/all.css'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700'><link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://static.fontawesome.com/css/fontawesome-app.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.2.0/css/all.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
 </head>
 <body>
-    <header>
+    <header id="header">
         <div id="text">
-            <h1>Portfolio</h1>
+            <h1 class="fadeIn">Portfolio</h1>
             <nav>
                 <ul>
                     <li><a href="#about">À propos</a></li>
                     <li><a href="#skills">Compétences</a></li>
                     <li><a href="#projects">Projets</a></li>
                     <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
+                </ul>
+            </nav>
+        </div>
     </header>
-    
-    <section id="about">
+
+    <section id="about" class="active">
         <img src="PP.png">
-        <h2 id="quote">A propos de moi</h2>
+        <h2 id="quote">À propos de moi</h2>
         <p>Bonjour, je m’appelle Alexandre Bosio. Je suis un développeur junior avec une polyvalence dans plusieurs langages de programmation tels que Java, JavaScript, CSS, HTML, PHP et C++. J'ai également de l'expérience dans le développement avec Unreal Engine.</p>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="active">
         <h2>Compétences</h2>
         <div class="skills-container">
             <div class="skills-section">
@@ -41,7 +42,6 @@
                     <li>HTML</li>
                     <li>PHP</li>
                 </ul>
-                
             </div>
             <div class="skills-section">
                 <h3>Programmation C++</h3>
@@ -62,18 +62,18 @@
         </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="active">
         <h2>Projets</h2>
         <div class="options">
-            <div class="option active" href="https://annimemax.000webhostapp.com/" style="--optionBackground:url(animemaxsite.PNG);">
+            <div class="option active" style="--optionBackground:url(animemaxsite.PNG);">
                <div class="shadow"></div>
                <div class="label">
                   <div class="icon">
                     <img src="animemax.png">
                   </div>
                   <div class="info">
-                    <div class="main"><a href="https://annimemax.000webhostapp.com/"> Anime Max</a></div>
-                     <div class="sub">Site de Streamin</div>
+                    <div class="main"><a href="https://annimemax.000webhostapp.com/">Anime Max</a></div>
+                     <div class="sub">Site de Streaming</div>
                   </div>
                </div>
             </div>
@@ -96,17 +96,15 @@
                     <img src="clicker_game.png">
                   </div>
                   <div class="info">
-                     <div class="main"><a href="https://dl.patchkit.net/d/22klto0x65wz5chz57e8v">Hunded Clicer</a></div>
-                     <div class="sub">clicker game</div>
+                     <div class="main"><a href="https://dl.patchkit.net/d/22klto0x65wz5chz57e8v">Hunded Clicker</a></div>
+                     <div class="sub">Clicker game</div>
                   </div>
                </div>
             </div>
-         
-         <!-- partial -->
-           <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" class="active">
         <h2>Contact</h2>
         <p>Email : alexxandre.bosio@gmail.com</p>
         <p>Téléphone : 0680910628</p>
