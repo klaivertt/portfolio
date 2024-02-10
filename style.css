@@ -420,7 +420,10 @@ img {
   body .options .option .label .info .sub {
     transition-delay: 0.1s;
   }
-
+  body .options .option .label .info .years {
+    font-size: 0.6rem;
+    transition-delay: 0.1s;
+  }
   a {
     color: #ffffff;
     text-decoration: none;
