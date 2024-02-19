@@ -432,3 +432,20 @@ img {
   a:hover {
     color: #ff0000;
   }
+  body .options .option .label .info2 {
+    display: flex;
+    justify-content: center; 
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 10px;
+    color: white;
+    white-space: pre;
+}
+
+  body .options .option .label .info2 .language {
+    bottom: 0px;
+    right: 10px;
+    color: white;
+    font-size: 0.8rem;
+}
