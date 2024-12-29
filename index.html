@@ -1,228 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-   <title>Portfolio d'Alexandre Bosio développeur junior</title>
-   <link rel="icon" href="images/logo.png">
-   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css'>
-   <link rel='stylesheet' href='https://static.fontawesome.com/css/fontawesome-app.css'>
-   <link rel='stylesheet' href='https://pro.fontawesome.com/releases/v5.2.0/css/all.css'>
-   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:400,700'>
-   <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Bosio Alexandre</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-   <header>
-      <div id="text">
-         <h1>Portfolio</h1>
-         <nav>
+    <!-- Header Section -->
+    <header>
+        <nav>
             <ul>
-               <li><a href="#about">À propos</a></li>
-               <li><a href="#skills">Compétences</a></li>
-               <li><a href="#projects">Projets</a></li>
-               <li><a href="#contact">Contact</a></li>
+                <li><a href="#home">#Home</a></li>
+                <li><a href="#works">#Works</a></li>
+                <li><a href="#about-me">#About Me</a></li>
+                <li><a href="#contacts">#Contacts</a></li>
             </ul>
-         </nav>
-      </div>
-   </header>
+        </nav>
+    </header>
 
-   <section id="about">
-      <h2 id="quote">A propos de moi</h2>
-      <section>
-         <p>Bonjour, je m'appelle Alexandre Bosio. Je suis étudiant en développement à l'école Creajeux, avec une
-            polyvalence dans plusieurs langages de programmation tels que Java, JavaScript, CSS, HTML, PHP et C++. J'ai
-            commencé à travailler sur de petits projets de développement en 2018, mais cela fait maintenant 2 ans que
-            j'approfonds mes connaissances et que je crée de vrais projets.</p>
-      </section>
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="hero-content">
+            <h1>Hi, I&#39;m Alexandre, a <span class="highlight">Games Developer</span>.</h1>
+            <p>My hobby is creating games, and I love learning new technologies.</p>
+            <p>Currently working on my portfolio.</p>
+        </div>
+    </section>
 
+    <!-- Projects Section -->
+    <section id="works">
+        <h2>My Projects</h2>
 
-      <section id="skills" class="active">
-         <h2>Compétences</h2>
-         <div class="skills-container">
-            <div class="skills-section">
-               <h3>Développement Web</h3>
-               <ul>
-                  <li>JavaScript</li>
-                  <li>CSS</li>
-                  <li>HTML</li>
-                  <li>PHP</li>
-                  <li>SQL</li>
-               </ul>
-            </div>
-            <div class="skills-section">
-               <h3>Programmation</h3>
-               <ul>
-                  <li>C++</li>
-                  <li>lua</li>
-                  <li>Java</li>
-               </ul>
-            </div>
-            <div class="skills-section">
-               <h3>FrameWork</h3>
-               <ul>
-                  <li>Love2D</li>
-                  <li>SFML</li>
-               </ul>
-            </div>
-         </div>
-         <div class="software-section">
-            <div class="skills-section">
-               <h3>Logiciels Utilisés</h3>
-               <ul>
-                  <li>Unreal Engine</li>
-                  <li>Visual Studio</li>
-                  <li>Visual Studio Code</li>
-                  <li>ZéroBrane Studio</li>
-               </ul>
-            </div>
-         </div>
-      </section>
-
-      <section id="projects">
-         <h2>Projets</h2>
-         <div class="options">
-            <div class="option active" href="https://annimemax.000webhostapp.com/"
-               style="--optionBackground:url(images/animemaxsite.PNG);">
-               <div class="shadow"></div>
-               <div class="label">
-                  <div class="icon">
-                     <img src="images/animemax.png">
-                  </div>
-                  <div class="info">
-                     <div class="main"><a href="https://annimemax.000webhostapp.com/" target="_blank"> Anime Max</a></div>
-                     <div class="sub">Site de Streaming</div>
-                     <div class="Github"><a href="https://github.com/klaivertt/animemax" target="_blank">Github Repositories</a></div>
-                     <div class="years">2023</div>
-                  </div>
-                  <div class="info2">
-                     <div class="language">PHP,Html et CSS</div>
-                  </div>
-               </div>
-            </div>
-            <div class="option" style="--optionBackground:url(images/orderofobsidianmod.png);">
-               <div class="shadow"></div>
-               <div class="label">
-                  <div class="icon">
-                     <img src="images/orderofobsidian.png">
-                  </div>
-                  <div class="info">
-                     <div class="main"><a href="https://www.curseforge.com/minecraft/mc-mods/order-of-obsidian" target="_blank">Order Of Obsidian</a></div>
-                     <div class="sub">Mod Minecraft</div>
-                     <div class="years">2021-2023</div>
-                  </div>
-                  <div class="info2">
-                     <div class="language">Java</div>
-                  </div>
-               </div>
-            </div>
-            <div class="option" style="--optionBackground:url(images/WikiOrder.png);">
-               <div class="shadow"></div>
-               <div class="label">
-                  <div class="icon">
-                     <img src="images/logoWiki.png">
-                  </div>
-                  <div class="info">
-                     <div class="main"><a href="https://klaivertt.github.io/OrderOfObsidianWiki/" target="_blank">Wiki Order Of Obsidian</a></div>
-                     <div class="sub">Wiki pour un Mod Minecraft</div>
-                     <div class="Github"><a href="https://github.com/klaivertt/OrderOfObsidianWiki" target="_blank">Github Repositories</a></div>
-                     <div class="years">2023</div>
-                  </div>
-                  <div class="info2">
-                     <div class="language">Html et CSS</div>
-                  </div>
-               </div>
-            </div>
-            <div class="option" style="--optionBackground:url(images/HundedClickerui.PNG);">
-               <div class="shadow"></div>
-               <div class="label">
-                  <div class="icon">
-                     <img src="images/clicker_game.png">
-                  </div>
-                  <div class="info">
-                     <div class="main"><a href="https://dl.patchkit.net/d/22klto0x65wz5chz57e8v" target="_blank">Hunded Clicker</a></div>
-                     <div class="sub">clicker game, sur Unreal Engine</div>
-                     <div class="years">2022</div>
-                  </div>
-                  <div class="info2">
-                     <div class="language">Blue print</div>
-                  </div>
-               </div>
-            </div>
-            <div class="option" style="--optionBackground:url(images/nr_bg.png);">
-               <div class="shadow"></div>
-               <div class="label">
-                  <div class="icon">
-                     <img src="images/nr.png">
-                  </div>
-                  <div class="info">
-                     <div class="main"><a href="jeu/Neon Rush.zip">Neon Rush</a></div>
-                     <div class="sub">runner</div>
-                     <div class="years">2023</div>
-                  </div>
-                  <div class="info2">
-                     <div class="language">Lua</div>
-                  </div>
-               </div>
-            </div>
-            <div class="option" style="--optionBackground:url(images/clicker.png);">
-               <div class="shadow"></div>
-               <div class="label">
-                  <div class="icon">
-                     <img src="images/clicker_logo.png">
-                  </div>
-                  <div class="info">
-                     <div class="main"><a href="jeu/clicker.zip">clicker</a></div>
-                     <div class="sub">Jeu a défilement</div>
-                     <div class="years">2024</div>
-                  </div>
-                  <div class="info2">
-                     <div class="language">Lua</div>
-                  </div>
-               </div>
-            </div>
-            <div class="option" style="--optionBackground:url(images/DuckHunt.png);">
-               <div class="shadow"></div>
-               <div class="label">
-                  <div class="icon">
-                     <img src="images/DuckLogo.png">
-                  </div>
-                  <div class="info">
-                     <div class="main"><a href="jeu/duck hunt.zip">Duck Hunt</a></div>
-                     <div class="sub">Remake du célebre jeu Duck Hunt</div>
-                     <div class="years">2024</div>
-                  </div>
-                  <div class="info2">
-                     <div class="language">Lua</div>
-                  </div>
-               </div>
-            </div>
-            <div class="option" style="--optionBackground:url(images/towerdefence.png);">
-               <div class="shadow"></div>
-               <div class="label">
-                  <div class="icon">
-                     <img src="images/Towerlogo.png">
-                  </div>
-                  <div class="info">
-                     <div class="main"><a href="">Tower Defence</a></div>
-                     <div class="sub"></div>
-                     <div class="years">2024</div>
-                  </div>
-                  <div class="info2">
-                     <div class="language">Lua</div>
-                  </div>
-               </div>
+        <!-- Main Projects -->
+        <div class="projects">
+            <div class="project-card">
+                <img src="Images/LIT.png" alt="Lost In Time">
+                <h3>Lost In Time</h3>
+                <p>Manipulate time to solve puzzles and save your brother from the mysteries of the past.</p>
+                <p class="project-date">Date: 2024</p>
+                <p class="project-tools">
+                    <strong>Languages/Tools:</strong> Lua, Love2D, Tiled
+                </p>
+                <a href="projets.html#lost-in-time">Explore the project</a> <!-- Lien vers la page des projets -->
             </div>
 
-            <!-- partial -->
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-      </section>
+            <div class="project-card">
+                <img src="Images/Fall.png" alt="Fall">
+                <h3>Fall</h3>
+                <p>Mon premier jeu lors d'une game jam, mis à jour par la suite.</p>
+                <p class="project-date">Date: 2024</p>
+                <p class="project-tools">
+                    <strong>Languages/Tools:</strong> Love2D
+                </p>
+                <a href="projets.html#fall">Explore the project</a> <!-- Lien vers la page des projets -->
+            </div>
 
-      <section id="contact" class="active">
-         <h2>Contact</h2>
-         <p>Email : <a href="mailto:alexxandre.bosio@gmail.com">alexxandre.bosio@gmail.com</a></p>
-      </section>
+            <div class="project-card">
+                <img src="Images/orderofobsidianmod.png" alt="Lost In Time">
+                <h3>Order Of Obsidian</h3>
+                <p>Mod Minecraft développé en Java.</p>
+                <p class="project-date">Date: 2022 - 2023</p>
+                <p class="project-tools">
+                    <strong>Languages/Tools:</strong> Java
+                </p>
+                <a href="projets.html#order-of-obsidian">Explore the project</a> <!-- Lien vers la page des projets -->
+            </div>
+        </div>
+        <a href="projets.html" class="btn-more">See More ~></a>
+    </section>
 
-      <script src="./script.js"></script>
+    <!-- About Me Section -->
+    <section id="about-me">
+        <div class="section-container">
+            <h2>About Me</h2>
+
+            <p>Hello, I’m Alexandre, a video game developer studying at Créajeux. I specialize in creating
+                engaging
+                and interactive games using Lua, C, and other technologies.</p>
+
+            <!-- Skills Section inside About Me -->
+            <section id="skills">
+                <h3>Skills</h3>
+
+                <div class="skills-category">
+                    <h4>Languages</h4>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <img src="Images/Skils/lua.webp" alt="Lua">
+                            <span>Lua</span>
+                        </div>
+                        <div class="skill">
+                            <img src="Images/Skils/c.webp" alt="C">
+                            <span>C</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Tools</h4>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <img src="Images/Skils/vs.webp" alt="Visual Studio">
+                            <span>Visual Studio</span>
+                        </div>
+                        <div class="skill">
+                            <img src="Images/Skils/tiled.webp" alt="Tiled">
+                            <span>Tiled</span>
+                        </div>
+                        <div class="skill">
+                            <img src="Images/Skils/git.webp" alt="Git">
+                            <span>Git</span>
+                        </div>
+                        <div class="skill">
+                            <img src="Images/Skils/Apache_Subversion.webp" alt="SVN">
+                            <span>SVN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Databases</h4>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <img src="Images/Skils/mysql.webp" alt="MySQL">
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h4>Frameworks</h4>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <img src="Images/Skils/love2d.webp" alt="Love2d">
+                            <span>Love2d</span>
+                        </div>
+                        <div class="skill">
+                            <img src="Images/Skils/sfml.webp" alt="CSFLM">
+                            <span>CSFLM</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; Copyright 2024. Made by Bosio Alexandre</p>
+        </footer>
 </body>
 
 </html>
