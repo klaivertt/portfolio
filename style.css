@@ -7,7 +7,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
+    background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
 }
@@ -17,10 +17,10 @@ body {
 =============================== */
 
 header {
-    background-color: #222222;
+    background-color: #1e1e1e;
     color: #f0f0f0;
     padding: 1rem 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 nav ul {
@@ -54,32 +54,34 @@ nav ul li a:hover {
 .hero-content {
     text-align: center;
     padding: 50px 20px;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.05);
     margin: 20px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     max-width: 800px;
-    border-radius: 8px;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease;
+    border-radius: 10px;
+    backdrop-filter: blur(12px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-content:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
 }
 
 .highlight {
     color: #D20A2E;
+    font-weight: bold;
 }
 
 .hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
     color: #f0f0f0;
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    line-height: 1.5;
+    font-size: 1.3rem;
+    line-height: 1.7;
     color: #f0f0f0;
 }
 
@@ -90,8 +92,9 @@ nav ul li a:hover {
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #222222;
+    background-color: #1e1e1e;
     color: #f0f0f0;
+    border-top: 2px solid #D20A2E;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -104,26 +107,27 @@ footer {
 #works {
     padding: 50px 20px;
     text-align: center;
-    background-color: #1a1a1a;
+    background-color: #121212;
 }
 
 #works h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
     color: #D20A2E;
+    font-weight: bold;
 }
 
 .projects {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .project-card {
-    background-color: #222222;
+    background-color: #1e1e1e;
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     max-width: 300px;
     text-align: left;
@@ -136,11 +140,11 @@ footer {
     width: 100%;
     height: auto;
     border-bottom: 5px solid #D20A2E;
-    border-radius: 8px 8px 0 0;
+    border-radius: 10px 10px 0 0;
 }
 
 .project-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 15px 0 10px 0;
     color: #D20A2E;
 }
@@ -169,28 +173,52 @@ footer {
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* ===============================
     ABOUT ME SECTION STYLES
 =============================== */
 
-#about-me h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #D20A2E;
-    font-weight: bold;
+#about-me {
+    padding: 50px 20px;
     text-align: center;
+    color: #f0f0f0;
 }
 
-.section-container {
-    text-align: center;
-    padding: 50px 20px;
+#about-me .section-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
     margin: 20px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     max-width: 800px;
+}
+
+#about-me h2 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #D20A2E;
+    font-weight: bold;
+}
+
+#about-me h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #D20A2E;
+    font-weight: bold;
+    text-align: left;
+}
+
+#about-me p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+#about-me .highlight {
+    color: #D20A2E;
+    font-weight: bold;
 }
 
 /* ===============================
@@ -200,11 +228,10 @@ footer {
 #skills {
     padding: 50px 20px;
     text-align: center;
-    background-color: #1a1a1a;
 }
 
 #skills h3 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     margin-bottom: 30px;
     color: #D20A2E;
     font-weight: bold;
@@ -216,7 +243,7 @@ footer {
 }
 
 .skills-category h4 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: #f0f0f0;
     margin-bottom: 20px;
 }
@@ -224,17 +251,17 @@ footer {
 .skills-list {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
     flex-wrap: wrap;
     margin-bottom: 30px;
 }
 
 .skill {
-    background-color: #222222;
-    border-radius: 10px;
-    padding: 30px;
+    background-color: #49494910;
+    border-radius: 12px;
+    padding: 25px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -252,8 +279,8 @@ footer {
 }
 
 .skill:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .project-tools {
@@ -274,8 +301,8 @@ footer {
     display: inline-block;
     background-color: #D20A2E;
     color: #f0f0f0;
-    padding: 10px 20px;
-    font-size: 1.1rem;
+    padding: 12px 24px;
+    font-size: 1.2rem;
     font-weight: bold;
     text-decoration: none;
     border-radius: 8px;
@@ -292,6 +319,91 @@ footer {
 
 .btn-more:active {
     transform: scale(1);
+}
+
+/* ===============================
+    CONTACT SECTION STYLES
+=============================== */
+/* General Styles for Contacts Section */
+#contacts {
+    padding: 60px 20px;
+    text-align: center;
+    color: #f0f0f0;
+    background-color: #1e1e1e;
+}
+
+#contacts h2 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+    color: #D20A2E;
+    font-weight: bold;
+}
+
+#contacts p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #d1d1d1;
+}
+
+/* Contact List Styling */
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 40px;
+    font-size: 1rem;
+}
+
+.contact-list li {
+    margin: 10px 0;
+}
+
+.contact-list a {
+    color: #D20A2E;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+    color: #890b22;
+}
+
+/* Social Links Styling */
+.social-links {
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #d1d1d1;
+    background-color: #D20A2E;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    background-color: #f77f00;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #contacts {
+        padding: 40px 10px;
+    }
+
+    #contacts h2 {
+        font-size: 2rem;
+    }
+
+    .social-links a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
 }
 
 /* ===============================

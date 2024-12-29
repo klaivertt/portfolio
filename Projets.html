@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Bosio Alexandre</title>
-    <link rel="stylesheet" href="projets.css"> <!-- Lien vers le CSS spécifique de cette page -->
+    <link rel="stylesheet" href="projets.css"> <!-- Specific CSS link -->
 </head>
 <body>
 
@@ -27,8 +27,6 @@
         <!-- Lost In Time Project -->
         <div id="lost-in-time" class="project-details">
             <h3>Lost In Time</h3>
-            
-            <!-- Carrousel d'images -->
             <div class="carousel-container">
                 <div class="carousel-images">
                     <img src="Images/LIT.png" alt="Lost In Time Image 1">
@@ -41,8 +39,7 @@
                     <button class="carousel-button next">❯</button>
                 </div>
             </div>
-            
-            <p>Manipulate time to solve puzzles and save your brother from the mysteries of the past.</p>
+            <p>Control time to solve puzzles and rescue your brother.</p>
             <p class="project-date">Date: 2024</p>
             <p class="project-tools">
                 <strong>Languages/Tools:</strong> Lua, Love2D, Tiled
@@ -54,7 +51,7 @@
         <div id="fall" class="project-details">
             <h3>Fall</h3>
             <img src="Images/Fall.png" alt="Fall">
-            <p>Mon premier jeu lors d'une game jam, mis à jour par la suite.</p>
+            <p>My first game jam project, later improved.</p>
             <p class="project-date">Date: 2024</p>
             <p class="project-tools">
                 <strong>Languages/Tools:</strong> Love2D
@@ -66,7 +63,7 @@
         <div id="order-of-obsidian" class="project-details">
             <h3>Order Of Obsidian</h3>
             <img src="Images/orderofobsidianmod.png" alt="Order Of Obsidian">
-            <p>Mod Minecraft développé en Java.</p>
+            <p>A Minecraft mod built in Java.</p>
             <p class="project-date">Date: 2022 - 2023</p>
             <p class="project-tools">
                 <strong>Languages/Tools:</strong> Java
@@ -74,17 +71,69 @@
             <a href="#">Download</a>
         </div>
 
+        <!-- Pong SFML -->
+        <div id="pong-sfml" class="project-details">
+            <h3>Pong SFML</h3>
+            <p>A Pong game built with SFML.</p>
+            <p class="project-date">Date: 2023</p>
+            <p class="project-tools">
+                <strong>Languages/Tools:</strong> C++, SFML
+            </p>
+            <a href="https://github.com/klaivertt/pongSFML">Link to the GitHub project</a>
+        </div>
+
         <!-- Mini Side Projects Section -->
         <h3>Mini Side Projects</h3>
+
         <div class="mini-projects">
             <div class="mini-project-card">
                 <h4>Simple Platform Generator</h4>
-                <p>A small platform generation module in C.</p>
+                <p>Basic platform generation in C.</p>
                 <p class="project-date">Date: 2024</p>
                 <p class="project-tools">
                     <strong>Languages/Tools:</strong> C, CSFML
                 </p>
-                <a href="https://github.com/klaivertt/Simple-Plateform-Generator">Github</a>
+                <a href="https://github.com/klaivertt/Simple-Plateform-Generator">GitHub</a>
+            </div>
+
+            <div class="mini-project-card">
+                <h4>Operation Wolf Remake</h4>
+                <p>A modernized remake of the classic game.</p>
+                <p class="project-date">Date: 2024</p>
+                <p class="project-tools">
+                    <strong>Languages/Tools:</strong> C, CSFML
+                </p>
+                <a href="https://github.com/klaivertt/Operation-Wolf">GitHub</a>
+            </div>
+
+            <div class="mini-project-card">
+                <h4>Mini Fighter</h4>
+                <p>A simplified Street Fighter 2 with Ryu.</p>
+                <p class="project-date">Date: 2024</p>
+                <p class="project-tools">
+                    <strong>Languages/Tools:</strong> C, CSFML
+                </p>
+                <a href="https://github.com/klaivertt/MiniFighter">GitHub</a>
+            </div>
+
+            <div class="mini-project-card">
+                <h4>HexaTime</h4>
+                <p>Changes page color based on time.</p>
+                <p class="project-date">Date: 2023</p>
+                <p class="project-tools">
+                    <strong>Languages/Tools:</strong> HTML, CSS
+                </p>
+                <a href="https://github.com/klaivertt/hexatime">GitHub</a>
+            </div>
+
+            <div class="mini-project-card">
+                <h4>Order Of Obsidian Wiki</h4>
+                <p>A website for the Order of Obsidian mod.</p>
+                <p class="project-date">Date: 2023</p>
+                <p class="project-tools">
+                    <strong>Languages/Tools:</strong> HTML, CSS
+                </p>
+                <a href="https://github.com/klaivertt/OrderOfObsidianWiki">GitHub</a>
             </div>
         </div>
     </section>
@@ -95,22 +144,19 @@
     </footer>
 
     <script>
-        // JavaScript pour contrôler le carrousel
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
         const carouselImages = document.querySelector('.carousel-images');
         let currentIndex = 0;
-        
+
         const images = document.querySelectorAll('.carousel-images img');
         const totalImages = images.length;
 
-        // Fonction pour faire défiler les images
         function updateCarousel() {
             const offset = -currentIndex * 100;
             carouselImages.style.transform = `translateX(${offset}%)`;
         }
 
-        // Événements pour les boutons de navigation
         prevButton.addEventListener('click', () => {
             currentIndex = (currentIndex === 0) ? totalImages - 1 : currentIndex - 1;
             updateCarousel();
