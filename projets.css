@@ -1,11 +1,8 @@
 /* ===============================
     GLOBAL STYLES
 =============================== */
-
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Poppins', sans-serif;
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
@@ -14,12 +11,13 @@ body {
 /* ===============================
     HEADER STYLES
 =============================== */
-
 header {
     background-color: #1e1e1e;
     color: #f0f0f0;
-    padding: 1rem 0;
+    padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    top: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -31,7 +29,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav ul li a {
@@ -42,7 +40,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #D20A2E;
+    color: #D20A2E; /* Rouge cerise */
     transform: scale(1.1);
 }
 
@@ -56,8 +54,6 @@ footer {
     background-color: #1e1e1e;
     color: #f0f0f0;
     border-top: 2px solid #D20A2E;
-    position: relative;
-    bottom: 0;
     width: 100%;
 }
 
@@ -68,7 +64,7 @@ footer {
 #projects {
     padding: 80px 20px;
     text-align: center;
-    background-color: #1a1a1a;
+    background-color: #121212;
 }
 
 #projects h2 {
@@ -83,11 +79,10 @@ footer {
 /* ===============================
     PROJECT DETAILS CARD STYLES
 =============================== */
-
 .project-details {
-    background-color: #222222;
+    background-color: #1e1e1e;
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 14px; /* Réduction de la taille de padding */
     border-radius: 12px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     text-align: left;
@@ -98,7 +93,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    max-width: 800px;
+    max-width: 560px; /* Réduction de la largeur maximale */
     margin-left: auto; 
     margin-right: auto;
 }
@@ -112,22 +107,22 @@ footer {
 }
 
 .project-details h3 {
-    font-size: 1.8rem;
-    margin: 15px 0 10px 0;
+    font-size: 1.26rem; /* Réduction de la taille du texte */
+    margin: 10px 0 7px 0;
     color: #D20A2E;
     text-transform: uppercase;
 }
 
 .project-details p {
-    font-size: 1.1rem;
+    font-size: 0.77rem; /* Réduction de la taille du texte */
     color: #e0e0e0;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .project-details .project-tools {
-    font-size: 1rem;
+    font-size: 0.7rem; /* Réduction de la taille du texte */
     color: #a0a0a0;
-    margin-top: 10px;
+    margin-top: 8px;
 }
 
 .project-details a {
@@ -135,17 +130,66 @@ footer {
     color: #D20A2E;
     font-weight: bold;
     transition: color 0.3s ease;
-    font-size: 1.1rem;
+    font-size: 0.77rem; /* Réduction de la taille du texte */
 }
 
 .project-details a:hover {
-    color: #f77f00;
+    color: #9a172f;
 }
 
 .project-details:hover {
     transform: translateY(-10px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
 }
+
+/* Styles pour les petits écrans */
+@media (max-width: 768px) {
+    .project-details {
+        max-width: 90%; /* Réduction de la largeur sur petits écrans */
+        padding: 12px; /* Ajustement du padding */
+    }
+
+    .project-details h3 {
+        font-size: 1.4rem; /* Ajustement de la taille du texte */
+    }
+
+    .project-details p {
+        font-size: 1rem; /* Ajustement de la taille du texte */
+    }
+
+    .project-details .project-tools {
+        font-size: 0.9rem; /* Ajustement de la taille du texte */
+    }
+
+    .project-details a {
+        font-size: 1rem; /* Ajustement de la taille du texte */
+    }
+}
+
+/* Styles pour les très petits écrans (mobiles) */
+@media (max-width: 480px) {
+    .project-details {
+        max-width: 100%; /* Full-width sur très petits écrans */
+        padding: 10px; /* Ajustement du padding */
+    }
+
+    .project-details h3 {
+        font-size: 1.2rem; /* Ajustement de la taille du texte */
+    }
+
+    .project-details p {
+        font-size: 0.9rem; /* Ajustement de la taille du texte */
+    }
+
+    .project-details .project-tools {
+        font-size: 0.8rem; /* Ajustement de la taille du texte */
+    }
+
+    .project-details a {
+        font-size: 0.9rem; /* Ajustement de la taille du texte */
+    }
+}
+
 
 /* ===============================
     MINI PROJECT CARDS STYLES
@@ -194,7 +238,7 @@ footer {
 }
 
 .mini-project-card a:hover {
-    color: #f77f00;
+    color: #9a172f;
 }
 
 .mini-project-card:hover {

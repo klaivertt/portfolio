@@ -4,9 +4,7 @@
 
 /* Style for the body */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+    font-family: 'Poppins', sans-serif;
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
@@ -15,12 +13,13 @@ body {
 /* ===============================
     HEADER STYLES
 =============================== */
-
 header {
     background-color: #1e1e1e;
     color: #f0f0f0;
-    padding: 1rem 0;
+    padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    top: 0;
+    z-index: 1000;
 }
 
 nav ul {
@@ -32,7 +31,7 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 nav ul li a {
@@ -43,7 +42,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #D20A2E;
+    color: #D20A2E; /* Rouge cerise */
     transform: scale(1.1);
 }
 
@@ -95,8 +94,6 @@ footer {
     background-color: #1e1e1e;
     color: #f0f0f0;
     border-top: 2px solid #D20A2E;
-    position: relative;
-    bottom: 0;
     width: 100%;
 }
 
@@ -118,21 +115,19 @@ footer {
 }
 
 .projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
+    padding: 20px;
 }
+
 
 .project-card {
     background-color: #1e1e1e;
-    padding: 20px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    text-align: left;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
     overflow: hidden;
 }
 
@@ -184,7 +179,6 @@ footer {
 #about-me {
     padding: 50px 20px;
     text-align: center;
-    color: #f0f0f0;
 }
 
 #about-me .section-container {
@@ -196,7 +190,7 @@ footer {
 }
 
 #about-me h2 {
-    font-size: 2.4rem;
+    font-size: 2rem;
     margin-bottom: 20px;
     color: #D20A2E;
     font-weight: bold;
@@ -237,6 +231,13 @@ footer {
     font-weight: bold;
 }
 
+#skills h4 {
+    margin-bottom: 30px;
+    color: #f0f0f0;
+    font-weight: bold;
+    text-align: center;
+}
+
 .skills-category {
     margin-bottom: 40px;
     text-align: center;
@@ -249,11 +250,10 @@ footer {
 }
 
 .skills-list {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
 .skill {
@@ -313,7 +313,7 @@ footer {
 }
 
 .btn-more:hover {
-    background-color: #f77f00;
+    background-color: #9a172f;
     transform: scale(1.05);
 }
 
@@ -386,7 +386,7 @@ footer {
 }
 
 .social-links a:hover {
-    background-color: #f77f00;
+    background-color: #9a172f;
     transform: scale(1.1);
 }
 
