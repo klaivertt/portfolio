@@ -6,6 +6,8 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 /* ===============================
@@ -16,6 +18,8 @@ header {
     color: #f0f0f0;
     padding: 1rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    width: 100%;
     top: 0;
     z-index: 1000;
 }
@@ -47,7 +51,6 @@ nav ul li a:hover {
 /* ===============================
     FOOTER STYLES
 =============================== */
-
 footer {
     text-align: center;
     padding: 20px 0;
@@ -55,16 +58,19 @@ footer {
     color: #f0f0f0;
     border-top: 2px solid #D20A2E;
     width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 /* ===============================
     PROJECTS SECTION STYLES
 =============================== */
-
 #projects {
     padding: 80px 20px;
     text-align: center;
     background-color: #121212;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #projects h2 {
@@ -82,7 +88,7 @@ footer {
 .project-details {
     background-color: #1e1e1e;
     margin-bottom: 30px;
-    padding: 14px; /* Réduction de la taille de padding */
+    padding: 14px;
     border-radius: 12px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     text-align: left;
@@ -93,7 +99,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
-    max-width: 560px; /* Réduction de la largeur maximale */
+    max-width: 560px;
     margin-left: auto; 
     margin-right: auto;
 }
@@ -107,20 +113,20 @@ footer {
 }
 
 .project-details h3 {
-    font-size: 1.26rem; /* Réduction de la taille du texte */
+    font-size: 1.26rem;
     margin: 10px 0 7px 0;
     color: #D20A2E;
     text-transform: uppercase;
 }
 
 .project-details p {
-    font-size: 0.77rem; /* Réduction de la taille du texte */
+    font-size: 0.77rem;
     color: #e0e0e0;
     margin-bottom: 15px;
 }
 
 .project-details .project-tools {
-    font-size: 0.7rem; /* Réduction de la taille du texte */
+    font-size: 0.7rem;
     color: #a0a0a0;
     margin-top: 8px;
 }
@@ -130,7 +136,7 @@ footer {
     color: #D20A2E;
     font-weight: bold;
     transition: color 0.3s ease;
-    font-size: 0.77rem; /* Réduction de la taille du texte */
+    font-size: 0.77rem;
 }
 
 .project-details a:hover {
@@ -142,59 +148,9 @@ footer {
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Styles pour les petits écrans */
-@media (max-width: 768px) {
-    .project-details {
-        max-width: 90%; /* Réduction de la largeur sur petits écrans */
-        padding: 12px; /* Ajustement du padding */
-    }
-
-    .project-details h3 {
-        font-size: 1.4rem; /* Ajustement de la taille du texte */
-    }
-
-    .project-details p {
-        font-size: 1rem; /* Ajustement de la taille du texte */
-    }
-
-    .project-details .project-tools {
-        font-size: 0.9rem; /* Ajustement de la taille du texte */
-    }
-
-    .project-details a {
-        font-size: 1rem; /* Ajustement de la taille du texte */
-    }
-}
-
-/* Styles pour les très petits écrans (mobiles) */
-@media (max-width: 480px) {
-    .project-details {
-        max-width: 100%; /* Full-width sur très petits écrans */
-        padding: 10px; /* Ajustement du padding */
-    }
-
-    .project-details h3 {
-        font-size: 1.2rem; /* Ajustement de la taille du texte */
-    }
-
-    .project-details p {
-        font-size: 0.9rem; /* Ajustement de la taille du texte */
-    }
-
-    .project-details .project-tools {
-        font-size: 0.8rem; /* Ajustement de la taille du texte */
-    }
-
-    .project-details a {
-        font-size: 0.9rem; /* Ajustement de la taille du texte */
-    }
-}
-
-
 /* ===============================
     MINI PROJECT CARDS STYLES
 =============================== */
-
 .mini-projects {
     margin-top: 50px;
     display: flex;
@@ -247,38 +203,8 @@ footer {
 }
 
 /* ===============================
-    RESPONSIVE DESIGN
-=============================== */
-
-@media (max-width: 768px) {
-    #projects h2 {
-        font-size: 2rem;
-    }
-
-    .mini-project-card {
-        width: 100%;
-        padding: 15px;
-    }
-
-    .project-details {
-        flex-direction: column;
-        padding: 15px;
-    }
-
-    .carousel-container {
-        max-width: 100%;
-    }
-
-    .carousel-images img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-/* ===============================
     CAROUSEL STYLES
 =============================== */
-
 .carousel-container {
     position: relative;
     width: 100%;
@@ -321,4 +247,55 @@ footer {
 
 .carousel-button:hover {
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ===============================
+    RESPONSIVE DESIGN
+=============================== */
+@media (max-width: 768px) {
+    #projects h2 {
+        font-size: 2rem;
+    }
+
+    .mini-project-card {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .project-details {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .carousel-container {
+        max-width: 100%;
+    }
+
+    .carousel-images img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-details {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .project-details h3 {
+        font-size: 1.2rem;
+    }
+
+    .project-details p {
+        font-size: 0.9rem;
+    }
+
+    .project-details .project-tools {
+        font-size: 0.8rem;
+    }
+
+    .project-details a {
+        font-size: 0.9rem;
+    }
 }

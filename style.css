@@ -1,12 +1,24 @@
 /* ===============================
+    VARIABLES
+=============================== */
+:root {
+    --primary-color: #D20A2E;
+    --secondary-color: #FF4500;
+    --background-color: #121212;
+    --header-background: #1e1e1e;
+    --text-color: #e0e0e0;
+    --highlight-color: #f0f0f0;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* ===============================
     GLOBAL STYLES
 =============================== */
-
-/* Style for the body */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #121212;
-    color: #e0e0e0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
 }
 
@@ -14,10 +26,10 @@ body {
     HEADER STYLES
 =============================== */
 header {
-    background-color: #1e1e1e;
-    color: #f0f0f0;
+    background-color: var(--header-background);
+    color: var(--highlight-color);
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 4px var(--shadow-color);
     top: 0;
     z-index: 1000;
 }
@@ -35,27 +47,26 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #f0f0f0;
+    color: var(--highlight-color);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: #D20A2E; /* Rouge cerise */
+    color: var(--primary-color);
     transform: scale(1.1);
 }
 
 /* ===============================
     HERO SECTION STYLES
 =============================== */
-/* Section Hero */
 .hero-content {
     text-align: center;
     padding: 60px 20px;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(255, 0, 0, 0.2));
     margin: 30px auto;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 15px var(--shadow-color);
     max-width: 800px;
     border-radius: 15px;
     backdrop-filter: blur(15px);
@@ -63,17 +74,18 @@ nav ul li a:hover {
     opacity: 0;
     transform: translateY(30px);
     animation: fadeIn 1s ease-out forwards;
+    will-change: transform, opacity;
 }
 
 .hero-content:hover {
     transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 10px 20px var(--shadow-color);
 }
 
 .highlight {
-    color: #D20A2E;
+    color: var(--primary-color);
     font-weight: bold;
-    background: linear-gradient(90deg, #D20A2E, #FF4500);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     -webkit-background-clip: text;
     color: transparent;
     animation: highlightAnim 3s linear infinite;
@@ -89,7 +101,7 @@ nav ul li a:hover {
 .hero-content p {
     font-size: 1.4rem;
     line-height: 1.8;
-    color: #f0f0f0;
+    color: var(--highlight-color);
     margin: 10px 0;
 }
 
@@ -103,6 +115,7 @@ nav ul li a:hover {
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInQuote 1.5s ease-out forwards 0.5s;
+    will-change: transform, opacity;
 }
 
 .quote-author {
@@ -133,29 +146,31 @@ nav ul li a:hover {
     100% { background-position: 0% 50%; }
 }
 
+/* ===============================
+    FOOTER STYLES
+=============================== */
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #1e1e1e;
-    color: #f0f0f0;
-    border-top: 2px solid #D20A2E;
+    background-color: var(--header-background);
+    color: var(--highlight-color);
+    border-top: 2px solid var(--primary-color);
     width: 100%;
 }
 
 /* ===============================
     PROJECTS SECTION STYLES
 =============================== */
-
 #works {
     padding: 50px 20px;
     text-align: center;
-    background-color: #121212;
+    background-color: var(--background-color);
 }
 
 #works h2 {
     font-size: 2.2rem;
     margin-bottom: 25px;
-    color: #D20A2E;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
@@ -166,12 +181,11 @@ footer {
     padding: 20px;
 }
 
-
 .project-card {
-    background-color: #1e1e1e;
+    background-color: var(--header-background);
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
 }
@@ -179,20 +193,20 @@ footer {
 .project-card img {
     width: 100%;
     height: auto;
-    border-bottom: 5px solid #D20A2E;
+    border-bottom: 5px solid var(--primary-color);
     border-radius: 10px 10px 0 0;
 }
 
 .project-card h3 {
     font-size: 1.6rem;
     margin: 15px 0 10px 0;
-    color: #D20A2E;
+    color: var(--primary-color);
 }
 
 .project-card p {
     font-size: 1rem;
     margin-bottom: 15px;
-    color: #f0f0f0;
+    color: var(--highlight-color);
 }
 
 .project-card .project-date {
@@ -203,7 +217,7 @@ footer {
 
 .project-card a {
     text-decoration: none;
-    color: #D20A2E;
+    color: var(--primary-color);
     font-weight: bold;
     transition: color 0.3s ease;
 }
@@ -214,13 +228,12 @@ footer {
 
 .project-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 12px var(--shadow-color);
 }
 
 /* ===============================
     ABOUT ME SECTION STYLES
 =============================== */
-
 #about-me {
     padding: 50px 20px;
     text-align: center;
@@ -237,14 +250,14 @@ footer {
 #about-me h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #D20A2E;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
 #about-me h4 {
     font-size: 1.4rem;
     margin-bottom: 10px;
-    color: #D20A2E;
+    color: var(--primary-color);
     font-weight: bold;
     text-align: left;
 }
@@ -256,7 +269,7 @@ footer {
 }
 
 #about-me .highlight {
-    color: #D20A2E;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
@@ -267,16 +280,17 @@ footer {
     padding: 50px 20px;
     text-align: center;
 }
+
 #skills h3 {
     font-size: 2.6rem;
     margin-bottom: 30px;
-    color: #D20A2E;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
 #skills h4 {
     margin-bottom: 30px;
-    color: #f0f0f0;
+    color: var(--highlight-color);
     font-weight: bold;
     text-align: center;
 }
@@ -288,7 +302,7 @@ footer {
 
 .skills-category h4 {
     font-size: 1.6rem;
-    color: #f0f0f0;
+    color: var(--highlight-color);
     margin-bottom: 20px;
 }
 
@@ -304,9 +318,10 @@ footer {
     border-radius: 12px;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .skill.visible {
     opacity: 1;
     transform: scale(1);
@@ -321,14 +336,13 @@ footer {
 .skill span {
     display: block;
     font-size: 1.2rem;
-    color: #f0f0f0;
+    color: var(--highlight-color);
     font-weight: bold;
 }
 
-
 .skill:hover {
     transform: translateY(-6px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px var(--shadow-color);
 }
 
 .project-tools {
@@ -344,11 +358,10 @@ footer {
 /* ===============================
     "Voir plus" BUTTON STYLES
 =============================== */
-
 .btn-more {
     display: inline-block;
-    background-color: #D20A2E;
-    color: #f0f0f0;
+    background-color: var(--primary-color);
+    color: var(--highlight-color);
     padding: 12px 24px;
     font-size: 1.2rem;
     font-weight: bold;
@@ -357,7 +370,7 @@ footer {
     text-align: center;
     margin-top: 20px;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    border: 2px solid #D20A2E;
+    border: 2px solid var(--primary-color);
 }
 
 .btn-more:hover {
@@ -372,27 +385,26 @@ footer {
 /* ===============================
     CONTACT SECTION STYLES
 =============================== */
-/* General Styles for Contacts Section */
 #contacts {
     padding: 60px 20px;
     text-align: center;
-    color: #f0f0f0;
-    background-color: #1e1e1e;
+    color: var(--highlight-color);
+    background-color: var(--header-background);
 }
 
 #contacts h2 {
     font-size: 2.6rem;
     margin-bottom: 20px;
-    color: #D20A2E;
+    color: var(--primary-color);
     font-weight: bold;
 }
+
 #contacts p {
     font-size: 1.2rem;
     margin-bottom: 40px;
     color: #d1d1d1;
 }
 
-/* Contact List Styling */
 .contact-list {
     list-style: none;
     padding: 0;
@@ -404,7 +416,7 @@ footer {
 }
 
 .contact-list a {
-    color: #D20A2E;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
@@ -414,7 +426,6 @@ footer {
     color: #890b22;
 }
 
-/* Social Links Styling */
 .social-links {
     margin-top: 20px;
 }
@@ -423,7 +434,7 @@ footer {
     display: inline-block;
     margin: 0 10px;
     color: #d1d1d1;
-    background-color: #D20A2E;
+    background-color: var(--primary-color);
     padding: 10px 15px;
     border-radius: 5px;
     font-size: 1rem;
@@ -431,12 +442,14 @@ footer {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.social-links a:hover {
+social-links a:hover {
     background-color: #9a172f;
     transform: scale(1.1);
 }
 
-/* Responsive Design */
+/* ===============================
+    RESPONSIVE DESIGN
+=============================== */
 @media (max-width: 768px) {
     #contacts {
         padding: 40px 10px;
@@ -450,13 +463,7 @@ footer {
         font-size: 0.9rem;
         padding: 8px 12px;
     }
-}
 
-/* ===============================
-    RESPONSIVE DESIGN
-=============================== */
-
-@media (max-width: 768px) {
     .about-me-card {
         flex-direction: column;
         text-align: center;
@@ -479,7 +486,6 @@ footer {
 /* ===============================
     SCROLL ANIMATIONS
 =============================== */
-
 .scroll-animation {
     opacity: 0;
     transform: translateY(50px);
