@@ -44,7 +44,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #D20A2E; /* Rouge cerise */
+    color: #D20A2E;
+    /* Rouge cerise */
     transform: scale(1.1);
 }
 
@@ -100,7 +101,7 @@ footer {
     justify-content: center;
     flex-direction: column;
     max-width: 860px;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -209,23 +210,36 @@ footer {
     position: relative;
     width: 100%;
     max-width: 700px;
-    margin: 30px auto;
+    margin: 30px auto 20px auto;
     overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.carousel-images {
+.carousel-images{
     display: flex;
-    transition: transform 0.3s ease-in-out;
+    width: 400%;
+    transition: transform 0.5s ease;
+}
+.carousel-images-tsn {
+    display: flex;
+    width: 500%;
+    transition: transform 0.5s ease;
 }
 
-.carousel-images img {
-    width: 100%;
+.carousel-images img,
+.carousel-images-tsn img {
+ width: 100%;
+    flex: 0 0 100%;
+    max-width: 700px;
     height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
 }
 
-.carousel-controls {
+.carousel-controls,
+.carousel-controls-tsn {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -234,19 +248,21 @@ footer {
     transform: translateY(-50%);
 }
 
-.carousel-button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 12px;
+.carousel-button,
+.carousel-button-tsn {
+    background: rgba(0, 0, 0, 0.5);
     border: none;
-    font-size: 20px;
+    color: #fff;
+    font-size: 2rem;
+    padding: 0 10px;
     cursor: pointer;
     border-radius: 50%;
-    transition: background-color 0.3s ease;
+    transition: background 0.2s;
 }
 
-.carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+.carousel-button:hover,
+.carousel-button-tsn:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
 /* ===============================
