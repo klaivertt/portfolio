@@ -3,7 +3,7 @@
 =============================== */
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    background-color: #121212;
+    background: linear-gradient(120deg, #121212 60%, #1e1e1e 100%);
     color: #e0e0e0;
     line-height: 1.6;
     margin: 0;
@@ -42,12 +42,11 @@ nav ul li a {
     color: #f0f0f0;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s, transform 0.3s;
 }
 
 nav ul li a:hover {
     color: #D20A2E;
-    /* Rouge cerise */
     transform: scale(1.1);
 }
 
@@ -55,33 +54,25 @@ nav ul li a:hover {
     FOOTER STYLES
 =============================== */
 footer {
-    text-align: center;
-    padding: 20px 0;
+    text-align: center; 
     background-color: #1e1e1e;
     color: #f0f0f0;
     border-top: 2px solid #D20A2E;
     width: 100%;
     position: fixed;
     bottom: 0;
+    margin-top: auto;
 }
 
 /* ===============================
     PROJECTS SECTION STYLES
 =============================== */
-/* Responsive grid for project cards */
 #projects {
     padding: 80px 5vw 40px 5vw;
     text-align: center;
-    background-color: #121212;
+    background: transparent;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-    margin-bottom: 40px;
 }
 
 #projects h2 {
@@ -97,19 +88,27 @@ footer {
     PROJECT DETAILS CARD STYLES
 =============================== */
 .project-details {
-    background-color: #1e1e1e;
+    background: rgba(30,30,30,0.98);
     margin-bottom: 32px;
-    padding: 18px 18px 24px 18px;
-    border-radius: 16px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    padding: 22px 28px 28px 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35), 0 1.5px 8px #D20A2E33;
     text-align: left;
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.35s, box-shadow 0.35s;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-width: 100%;
-    min-width: 0;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1.5px solid #232323;
+}
+
+.project-details:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 24px 48px #D20A2E44, 0 2px 12px #232323;
+    border-color: #D20A2E;
 }
 
 .project-details img {
@@ -118,102 +117,127 @@ footer {
     object-fit: cover;
     border-bottom: 5px solid #D20A2E;
     border-radius: 12px 12px 0 0;
-    transition: transform 0.3s;
+    transition: transform 0.4s cubic-bezier(.4,2,.3,1);
+    box-shadow: 0 2px 12px #D20A2E22;
     background: #222;
 }
 
 .project-details h3 {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     margin: 18px 0 10px 0;
     color: #D20A2E;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px #D20A2E22;
 }
 
 .project-details p {
     font-size: 1rem;
     color: #e0e0e0;
     margin-bottom: 12px;
+    line-height: 1.7;
 }
 
 .project-details .project-tools {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #a0a0a0;
     margin-top: 8px;
+    font-style: italic;
 }
 
 .project-details a {
+    display: inline-block; 
     text-decoration: none;
     color: #D20A2E;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s, background 0.3s;
     font-size: 1rem;
     padding: 8px 16px;
     border-radius: 6px;
     background: rgba(210,10,46,0.08);
+    margin-top: 6px;
+    width: fit-content; /* optionnel si tu veux vraiment limiter */
 }
+
 
 .project-details a:hover {
     color: #fff;
     background: #D20A2E;
 }
 
-.project-details:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.35);
-}
-
 /* ===============================
     MINI PROJECT CARDS STYLES
 =============================== */
 .mini-projects {
-    margin-top: 50px;
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin-top: 35px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 75px;
+    justify-items: center;
 }
 
+.mini-projects .mini-project-card:last-child:nth-child(3n+1) {
+    grid-column: 2;
+}
+
+.mini-projects .mini-project-card:nth-last-child(2):nth-child(3n+1),
+.mini-projects .mini-project-card:last-child:nth-child(3n+2) {
+    grid-column: span 1;
+}
 .mini-project-card {
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: rgba(30,30,30,0.98);
+    padding: 20px 18px 22px 18px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px #D20A2E22, 0 1px 8px #232323;
     text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
     width: 100%;
     max-width: 350px;
-    margin: 20px auto;
+    margin: 0 auto;
     position: relative;
-}
-
-.mini-project-card h4 {
-    font-size: 1.4rem;
-    color: #D20A2E;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-}
-
-.mini-project-card p {
-    font-size: 1.1rem;
-    color: #e0e0e0;
-    margin-bottom: 15px;
-}
-
-.mini-project-card a {
-    color: #D20A2E;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-}
-
-.mini-project-card a:hover {
-    color: #9a172f;
+    border: 1px solid #232323;
 }
 
 .mini-project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 32px #D20A2E44, 0 2px 12px #232323;
+    border-color: #D20A2E;
+}
+
+.mini-project-card h4 {
+    font-size: 1.15rem;
+    color: #D20A2E;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.mini-project-card p {
+    font-size: 0.98rem;
+    color: #e0e0e0;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.mini-project-card a {
+    text-decoration: none;
+    color: #D20A2E;
+    font-weight: 600;
+    transition: color 0.3s, background 0.3s;
+    font-size: 1rem;
+    padding: 8px 18px;
+    border-radius: 7px;
+    background: rgba(210,10,46,0.10);
+    margin-top: 8px;
+    letter-spacing: 0.01em;
+    display: inline-block;
+}
+
+.mini-project-card a:hover {
+    color: #fff;
+    background: #D20A2E;
 }
 
 /* ===============================
@@ -229,18 +253,13 @@ footer {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.carousel-images{
-    display: flex;
-    transition: transform 0.5s ease;
-    width: 100%;
-}
+.carousel-images,
 .carousel-images-tsn {
     display: flex;
     transition: transform 0.5s ease;
     width: 100%;
 }
 
-.carousel-images img,
 .carousel-images img,
 .carousel-images-tsn img {
     width: 100%;
@@ -255,7 +274,6 @@ footer {
 }
 
 .carousel-controls,
-.carousel-controls,
 .carousel-controls-tsn {
     position: absolute;
     top: 50%;
@@ -266,7 +284,6 @@ footer {
     z-index: 2;
 }
 
-.carousel-button,
 .carousel-button,
 .carousel-button-tsn {
     background: rgba(0, 0, 0, 0.5);
@@ -281,7 +298,6 @@ footer {
 }
 
 .carousel-button:hover,
-.carousel-button:hover,
 .carousel-button-tsn:hover {
     background: #D20A2E;
     color: #fff;
@@ -295,9 +311,9 @@ footer {
         font-size: 2rem;
     }
 
-    .projects-grid {
+    .mini-projects {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 18px;
     }
 
     .mini-project-card {
@@ -342,6 +358,7 @@ footer {
 
     .project-details a {
         font-size: 0.95rem;
-        padding: 8px 10px;
+        padding: 2px 4px;
+        border-radius: 4px;
     }
 }
