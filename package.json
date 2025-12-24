@@ -1,0 +1,36 @@
+{
+  "name": "portfolio-bosio-alexandre",
+  "version": "3.0.0",
+  "description": "Modern and interactive portfolio with smooth animations",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "dev:npm": "npx http-server -p 8000",
+    "build": "echo 'Portfolio is static, no build needed'",
+    "lint": "echo 'Add a linter configuration if needed'",
+    "test": "echo 'Add test configuration if needed'"
+  },
+  "keywords": [
+    "portfolio",
+    "developer",
+    "games",
+    "animations",
+    "responsive"
+  ],
+  "author": "Bosio Alexandre <alexxandre.bosio@gmail.com>",
+  "license": "All rights reserved",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klaivertt/portfolio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/klaivertt/portfolio/issues"
+  },
+  "homepage": "https://github.com/klaivertt/portfolio#readme",
+  "optionalDependencies": {
+    "http-server": "^14.1.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "portfolio": {
+    "version": "2.0",
+    "name": "Bosio Alexandre - Professional Portfolio",
+    "description": "Modern and professional portfolio with advanced animations and interactions",
+    "author": "Bosio Alexandre",
+    "email": "alexxandre.bosio@gmail.com",
+    "github": "https://github.com/klaivertt",
+    "linkedin": "https://www.linkedin.com/in/alexandre-bosio-57286b319",
+    "createdAt": "09-07-2023",
+    "lastUpdated": "24-12-2025",
+    "features": {
+      "animations": {
+        "aos": "Animate On Scroll library integrated",
+        "parallax3D": "3D parallax on project cards",
+        "particles": "Dynamic floating particles background",
+        "typing": "Typing effect on hero title",
+        "gradientShift": "Animated gradient text",
+        "hoverEffects": "Advanced hover animations on all interactive elements"
+      },
+      "performance": {
+        "lazyLoading": "Image lazy loading with IntersectionObserver",
+        "gpuAcceleration": "CSS animations optimized for GPU",
+        "debouncing": "Scroll event debouncing",
+        "caching": "Local storage for theme and language preferences"
+      },
+      "responsive": {
+        "mobile": "Full mobile optimization",
+        "tablet": "Tablet breakpoints",
+        "desktop": "Desktop optimizations",
+        "touchFriendly": "Touch-friendly interactions"
+      },
+      "themes": {
+        "dark": "Modern dark theme (default)",
+        "light": "Professional light theme",
+        "toggle": "Smooth theme switching"
+      },
+      "languages": {
+        "en": "English",
+        "fr": "Français",
+        "toggle": "Language switching with localStorage"
+      }
+    },
+    "libraries": {
+      "aos": {
+        "name": "Animate On Scroll",
+        "version": "2.3.4",
+        "cdn": "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js",
+        "css": "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css",
+        "purpose": "Scroll animations"
+      },
+      "googleFonts": {
+        "name": "Google Fonts",
+        "fonts": ["Poppins", "Space Mono"],
+        "weights": [300, 400, 600, 700, 800]
+      }
+    },
+    "colors": {
+      "primary": "#D20A2E",
+      "secondary": "#FF4500",
+      "accent": "#FF6B6B",
+      "darkBackground": "#0a0a0a",
+      "lightBackground": "#f5f5f5"
+    },
+    "animations": {
+      "fadeIn": {
+        "duration": "0.6s",
+        "easing": "ease"
+      },
+      "slideUp": {
+        "duration": "0.8s",
+        "easing": "ease"
+      },
+      "fadeInUp": {
+        "duration": "0.6s",
+        "easing": "ease"
+      },
+      "fadeInScale": {
+        "duration": "0.8s",
+        "easing": "ease"
+      },
+      "bounce": {
+        "duration": "2s",
+        "easing": "infinite"
+      }
+    },
+    "breakpoints": {
+      "mobile": "480px",
+      "tablet": "768px",
+      "desktop": "1024px",
+      "largeDesktop": "1400px"
+    },
+    "performance": {
+      "imageOptimization": "Lazy loading enabled",
+      "cssCompression": "Optimized CSS",
+      "jsCompression": "Modern JavaScript",
+      "criticalCSS": "Inline critical styles"
+    },
+    "seo": {
+      "responsive": true,
+      "fastLoading": true,
+      "mobileOptimized": true,
+      "semanticHTML": true,
+      "imageAlt": "All images have alt text",
+      "metaTags": "Complete meta tags"
+    },
+    "files": {
+      "html": ["index.html", "projets.html"],
+      "css": ["style.css", "projets.css"],
+      "js": ["script.js", "projets.js"],
+      "images": "Images/ (Games/, Skils/)"
+    },
+    "futureImprovements": [
+      "Blog section with articles",
+      "Before/after project showcase",
+      "Comments system",
+      "Newsletter signup",
+      "Advanced dark mode animation",
+      "PWA support",
+      "Scrollytelling section"
+    ]
+  }
+}

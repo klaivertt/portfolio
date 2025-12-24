@@ -43,6 +43,19 @@ const translations = {
         'contact-title': 'Contact',
         'contact-subtitle': "Let's work together",
         'contact-desc': 'Feel free to reach out to discuss projects or collaborations!',
+        'all-projects': 'All Projects',
+        'complete-portfolio': 'Complete portfolio of my work',
+        'mini-projects': 'Mini Side Projects',
+        'tsn-desc': 'The Scarlet Night is a story-driven RPG where you play as a hunter determined to break a deadly curse. Explore the vast city of Northbrook and its surroundings, and engage in strategic turn-based battles.',
+        'lit-desc': 'Manipulate time to solve challenging puzzles and embark on a quest to save your brother from the mysteries of the past.',
+        'tpa-desc': 'Created in a 44-hour Game Jam with the theme "Little Creatures." This top-down real-time strategy game lets you manage a village of slimes defending against attacks from the Pebble Nation.',
+        'fall-desc': 'My first game jam project, made in 48 hours on the theme "Deeper and Deeper." It\'s an endless vertical scroller where you must avoid obstacles to descend as far as possible. The game was later improved with new features.',
+        'ooo-desc': 'A Minecraft mod built in Java adding new gameplay mechanics and content.',
+        'pong-desc': 'A Pong game built with SFML, featuring smooth gameplay and classic mechanics.',
+        'explore-project': 'Explore Project',
+        'play-itch': 'Play on itch.io',
+        'view-cursefr': 'View on CurseForge',
+        'view-github': 'View on GitHub',
     },
     fr: {
         'nav-home': '#Accueil',
@@ -85,45 +98,64 @@ const translations = {
         'contact-title': 'Contact',
         'contact-subtitle': 'Travaillons ensemble',
         'contact-desc': 'N\'hésitez pas à me contacter pour discuter de projets ou de collaborations !',
+        'all-projects': 'Tous les Projets',
+        'complete-portfolio': 'Portfolio complet de mes travaux',
+        'mini-projects': 'Petits Projets Côté',
+        'tsn-desc': 'The Scarlet Night est un RPG narratif où vous jouez en tant que chasseur déterminé à briser une malédiction mortelle. Explorez la vaste ville de Northbrook et ses environs, et engagez des combats tactiques au tour par tour.',
+        'lit-desc': 'Manipulez le temps pour résoudre des énigmes difficiles et lancez-vous dans une quête pour sauver votre frère des mystères du passé.',
+        'tpa-desc': 'Créé en 44 heures lors d\'une Game Jam sur le thème "Petites Créatures". Ce jeu de stratégie en temps réel vue de haut vous permet de gérer un village de limaces se défendant contre les attaques de la Nation Galets.',
+        'fall-desc': 'Mon premier projet de game jam, réalisé en 48 heures sur le thème "De plus en plus profond". C\'est un scroller vertical infini où vous devez éviter les obstacles pour descendre aussi loin que possible. Le jeu a été amélioré par la suite avec de nouvelles fonctionnalités.',
+        'ooo-desc': 'Un mod Minecraft construit en Java ajoutant de nouvelles mécaniques de jeu et du contenu.',
+        'pong-desc': 'Un jeu Pong créé avec SFML, présentant une jouabilité fluide et des mécaniques classiques.',
+        'explore-project': 'Explorer le Projet',
+        'play-itch': 'Jouer sur itch.io',
+        'view-cursefr': 'Voir sur CurseForge',
+        'view-github': 'Voir sur GitHub',
     }
 };
 
 // ===============================
-// VARIABLES GLOBALES
+// GLOBAL VARIABLES
 // ===============================
 let currentLang = localStorage.getItem('language') || 'en';
 let currentTheme = localStorage.getItem('theme') || 'dark';
+let animationState = {
+    particlesInitialized: false,
+    headerLastScroll: 0
+};
 
 // ===============================
 // INITIALIZATION
 // ===============================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded');
+    console.log('🚀 Portfolio loading...');
     
-    // Apply theme and language
+    // Apply saved preferences
     applyTheme(currentTheme);
     applyLanguage(currentLang);
     
-    // Load images
+    // Initialize features in order
     loadAllImages();
-    
-    // Initialize features
     initThemeToggle();
     initLanguageToggle();
     initMobileMenu();
     initSmoothScroll();
+    initHeaderEffects();
     initScrollAnimations();
     initParticles();
+    initInteractiveElements();
     
-    // Typing effect
-    setTimeout(initTypingEffect, 300);
+    // Typing effect with delay
+    setTimeout(initTypingEffect, 400);
+    
+    // Fade in page
+    document.body.style.opacity = '1';
 });
 
 // ===============================
 // THEME MANAGEMENT
 // ===============================
 function applyTheme(theme) {
-    console.log('Applying theme:', theme);
     document.documentElement.setAttribute('data-theme', theme);
     currentTheme = theme;
 }
@@ -136,7 +168,12 @@ function initThemeToggle() {
         currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
         applyTheme(currentTheme);
         localStorage.setItem('theme', currentTheme);
-        console.log('Theme changed to:', currentTheme);
+        
+        // Add animation effect
+        this.style.animation = 'none';
+        setTimeout(() => {
+            this.style.animation = '';
+        }, 10);
     });
 }
 
@@ -144,21 +181,17 @@ function initThemeToggle() {
 // LANGUAGE MANAGEMENT
 // ===============================
 function applyLanguage(lang) {
-    console.log('Applying language:', lang);
     currentLang = lang;
     
-    // Update all elements with data-i18n
-    document.querySelectorAll('[data-i18n]').forEach(function(element) {
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang] && translations[lang][key]) {
             element.textContent = translations[lang][key];
         }
     });
     
-    // Update language toggle button
     updateLanguageToggle();
-    
-    // Update HTML lang attribute
     document.documentElement.lang = lang;
 }
 
@@ -172,10 +205,10 @@ function updateLanguageToggle() {
     if (flag && code) {
         if (currentLang === 'en') {
             flag.textContent = '🇬🇧';
-            if (code) code.textContent = 'EN';
+            code.textContent = 'EN';
         } else {
             flag.textContent = '🇫🇷';
-            if (code) code.textContent = 'FR';
+            code.textContent = 'FR';
         }
     }
 }
@@ -188,24 +221,43 @@ function initLanguageToggle() {
         currentLang = currentLang === 'en' ? 'fr' : 'en';
         applyLanguage(currentLang);
         localStorage.setItem('language', currentLang);
-        console.log('Language changed to:', currentLang);
     });
 }
 
 // ===============================
-// IMAGE LOADING
+// IMAGE LOADING WITH LAZY LOADING
 // ===============================
 function loadAllImages() {
-    console.log('Loading images...');
     const images = document.querySelectorAll('img[data-src]');
     
-    images.forEach(function(img) {
-        const src = img.getAttribute('data-src');
-        if (src) {
-            img.src = src;
-            img.removeAttribute('data-src');
-        }
-    });
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    const src = img.getAttribute('data-src');
+                    
+                    if (src) {
+                        img.src = src;
+                        img.removeAttribute('data-src');
+                        img.classList.add('loaded');
+                        imageObserver.unobserve(img);
+                    }
+                }
+            });
+        });
+        
+        images.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for older browsers
+        images.forEach(img => {
+            const src = img.getAttribute('data-src');
+            if (src) {
+                img.src = src;
+                img.removeAttribute('data-src');
+            }
+        });
+    }
 }
 
 // ===============================
@@ -217,28 +269,37 @@ function initMobileMenu() {
     
     if (!mobileMenuToggle || !navLinks) return;
     
-    mobileMenuToggle.addEventListener('click', function() {
+    mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
         navLinks.classList.toggle('active');
         mobileMenuToggle.classList.toggle('active');
     });
     
-    // Close menu when clicking on a link
-    navLinks.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
         });
     });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+        }
+    });
 }
 
 // ===============================
-// SMOOTH SCROLL
+// SMOOTH SCROLL NAVIGATION
 // ===============================
 function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href === '#') return;
+            if (href === '#' || !href) return;
             
             e.preventDefault();
             const target = document.querySelector(href);
@@ -258,7 +319,27 @@ function initSmoothScroll() {
 }
 
 // ===============================
-// SCROLL ANIMATIONS
+// HEADER EFFECTS ON SCROLL
+// ===============================
+function initHeaderEffects() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.pageYOffset;
+        
+        if (scrollPosition > 100) {
+            header.style.boxShadow = '0 4px 30px var(--shadow-color)';
+            header.style.backdropFilter = 'blur(20px)';
+        } else {
+            header.style.boxShadow = '0 2px 20px var(--shadow-color)';
+            header.style.backdropFilter = 'blur(10px)';
+        }
+    }, { passive: true });
+}
+
+// ===============================
+// SCROLL ANIMATIONS (IntersectionObserver)
 // ===============================
 function initScrollAnimations() {
     const observerOptions = {
@@ -266,44 +347,76 @@ function initScrollAnimations() {
         rootMargin: '0px 0px -50px 0px'
     };
     
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('aos-animate');
             }
         });
     }, observerOptions);
     
-    // Observe all elements with data-aos
-    document.querySelectorAll('[data-aos]').forEach(function(el) {
+    // Observe elements
+    document.querySelectorAll('[data-aos]').forEach(el => {
         observer.observe(el);
     });
 }
 
 // ===============================
-// PARTICLES
+// ENHANCED PARTICLES
 // ===============================
 function initParticles() {
     const container = document.getElementById('particles');
-    if (!container) return;
+    if (!container || animationState.particlesInitialized) return;
     
-    const particleCount = 30;
+    animationState.particlesInitialized = true;
+    
+    const particleCount = 40;
+    const particles = [];
     
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
+        const size = Math.random() * 3 + 1;
+        const opacity = Math.random() * 0.4 + 0.1;
+        
         particle.style.cssText = `
             position: absolute;
-            width: ${Math.random() * 3 + 1}px;
-            height: ${Math.random() * 3 + 1}px;
-            background: rgba(210, 10, 46, ${Math.random() * 0.3 + 0.1});
+            width: ${size}px;
+            height: ${size}px;
+            background: radial-gradient(circle, rgba(210, 10, 46, 0.8), rgba(255, 69, 0, 0.2));
             border-radius: 50%;
             left: ${Math.random() * 100}%;
             top: ${Math.random() * 100}%;
-            opacity: ${Math.random() * 0.5 + 0.2};
+            opacity: ${opacity};
             pointer-events: none;
+            animation: floatParticle ${5 + Math.random() * 10}s linear infinite;
+            box-shadow: 0 0 ${size * 2}px rgba(210, 10, 46, ${opacity});
         `;
+        
         container.appendChild(particle);
+        particles.push(particle);
     }
+    
+    // Add animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(${Math.random() * 100 - 50}px);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
 }
 
 // ===============================
@@ -313,17 +426,14 @@ function initTypingEffect() {
     const typingElement = document.querySelector('.typing-effect');
     if (!typingElement) return;
     
-    const text = typingElement.textContent;
-    const originalText = text;
-    
-    // Only animate if element has actual content
-    if (!text || text.trim().length === 0) return;
+    const text = typingElement.textContent.trim();
+    if (!text) return;
     
     typingElement.textContent = '';
     typingElement.style.borderRight = '3px solid var(--primary-color)';
     
     let index = 0;
-    const speed = 80;
+    const speed = 60;
     
     function type() {
         if (index < text.length) {
@@ -337,27 +447,76 @@ function initTypingEffect() {
 }
 
 // ===============================
-// HEADER EFFECTS
+// INTERACTIVE ELEMENTS
 // ===============================
-let lastScrollPosition = 0;
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (!header) return;
+function initInteractiveElements() {
+    // Add hover effects to interactive elements
+    const buttons = document.querySelectorAll('.btn, .btn-more, .project-btn, .social-link');
     
-    const currentScrollPosition = window.pageYOffset;
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-2px)';
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
     
-    if (currentScrollPosition > 100) {
-        header.style.boxShadow = '0 4px 30px var(--shadow-color)';
-        header.style.background = 'var(--background-tertiary)';
-    } else {
-        header.style.boxShadow = '0 2px 20px var(--shadow-color)';
+    // Project cards parallax effect
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    });
+    
+    // Badge animation
+    const badge = document.querySelector('.hero-badge');
+    if (badge) {
+        badge.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) rotate(-2deg)';
+        });
+        
+        badge.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0)';
+        });
     }
-    
-    lastScrollPosition = currentScrollPosition;
-});
+}
 
 // ===============================
-// CONSOLE MESSAGE
+// PERFORMANCE: Debounce function
 // ===============================
-console.log('%c👋 Hello Developer!', 'color: #D20A2E; font-size: 20px; font-weight: bold;');
-console.log('%cLooking to hire? Contact me at alexxandre.bosio@gmail.com', 'color: #FF4500; font-size: 14px;');
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// ===============================
+// CONSOLE MESSAGES
+// ===============================
+console.log('%c👋 Welcome Developer!', 'color: #D20A2E; font-size: 20px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);');
+console.log('%cLooking to hire? Contact me at: alexxandre.bosio@gmail.com', 'color: #FF4500; font-size: 14px; font-weight: bold;');
+console.log('%cGitHub: github.com/klaivertt', 'color: #00D9FF; font-size: 12px;');
+console.log('%cLinkedIn: linkedin.com/in/alexandre-bosio', 'color: #0077B5; font-size: 12px;');

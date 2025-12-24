@@ -10,6 +10,8 @@ class Carousel {
         this.images = this.carousel.querySelectorAll('img');
         this.currentIndex = 0;
         this.totalImages = this.images.length;
+        this.autoPlayInterval = null;
+        this.isAutoPlaying = false;
         
         // Get buttons
         this.prevBtn = this.wrapper.querySelector('.carousel-btn.prev');
@@ -43,8 +45,10 @@ class Carousel {
         this.indicators.forEach((indicator, index) => {
             if (index === this.currentIndex) {
                 indicator.classList.add('active');
+                indicator.style.animation = 'pulse 0.4s ease';
             } else {
                 indicator.classList.remove('active');
+                indicator.style.animation = 'none';
             }
         });
     }
@@ -88,8 +92,14 @@ class Carousel {
         // Touch/Swipe support
         this.addSwipeSupport();
         
-        // Auto-play (optional - disabled by default)
-        // this.startAutoPlay();
+        // Auto-play on hover
+        this.wrapper.addEventListener('mouseenter', () => {
+            this.startAutoPlay();
+        });
+        
+        this.wrapper.addEventListener('mouseleave', () => {
+            this.stopAutoPlay();
+        });
     }
     
     addSwipeSupport() {
@@ -117,19 +127,20 @@ class Carousel {
         });
     }
     
-    startAutoPlay(interval = 5000) {
+    startAutoPlay(interval = 4000) {
+        if (this.isAutoPlaying) return;
+        
+        this.isAutoPlaying = true;
         this.autoPlayInterval = setInterval(() => {
             this.nextSlide();
         }, interval);
-        
-        // Pause on hover
-        this.wrapper.addEventListener('mouseenter', () => {
+    }
+    
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
             clearInterval(this.autoPlayInterval);
-        });
-        
-        this.wrapper.addEventListener('mouseleave', () => {
-            this.startAutoPlay(interval);
-        });
+            this.isAutoPlaying = false;
+        }
     }
 }
 
