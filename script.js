@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initLanguageToggle();
     initMobileMenu();
     initSmoothScroll();
+    initActiveNavLink();
     initHeaderEffects();
     initScrollAnimations();
     initParticles();
@@ -355,6 +356,58 @@ function initSmoothScroll() {
             }
         });
     });
+}
+
+// ===============================
+// ACTIVE NAV LINK HIGHLIGHT
+// ===============================
+function initActiveNavLink() {
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section, header');
+    
+    function updateActiveLink() {
+        let currentSection = '';
+        
+        // Find which section is currently in viewport
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.pageYOffset >= sectionTop - 200) {
+                const sectionId = section.getAttribute('id');
+                if (sectionId) {
+                    currentSection = sectionId;
+                }
+            }
+        });
+        
+        // Update active link
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            
+            const href = link.getAttribute('href');
+            // Handle both #section and page.html#section
+            const sectionId = href.split('#')[1];
+            
+            if (sectionId === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // Update on scroll
+    window.addEventListener('scroll', debounce(updateActiveLink, 100), { passive: true });
+    
+    // Update on click (for smooth scroll)
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+    
+    // Initial call
+    updateActiveLink();
 }
 
 // ===============================
