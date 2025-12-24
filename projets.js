@@ -198,6 +198,74 @@ function animateProjectCards() {
 // ===============================
 // SMOOTH SCROLL TO PROJECTS
 // ===============================
+// Initialize Mobile Menu
+// ===============================
+function initMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle') || 
+                            document.querySelector('.mobile-menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (!mobileMenuToggle || !navLinks) return;
+    
+    // Toggle menu on button click
+    mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        toggleMobileMenu();
+    });
+    
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
+    
+    // Close menu when pressing Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('nav') && !e.target.closest('.mobile-menu-toggle')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Prevent closing when clicking inside the menu
+    navLinks.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    
+    // Disable body scroll when menu is open
+    function toggleMobileMenu() {
+        navLinks.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+        
+        if (navLinks.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+    
+    function closeMobileMenu() {
+        navLinks.classList.remove('active');
+        mobileMenuToggle.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeMobileMenu();
+        }
+    });
+}
+
+// ===============================
 function scrollToProject(projectId) {
     const project = document.getElementById(projectId);
     if (project) {
@@ -214,6 +282,8 @@ function scrollToProject(projectId) {
 
 // Check for hash in URL on page load
 window.addEventListener('load', () => {
+    initMobileMenu();
+    
     if (window.location.hash) {
         const projectId = window.location.hash.substring(1);
         setTimeout(() => {
